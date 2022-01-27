@@ -1,0 +1,73 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+template <class T>
+class StackMin{
+    private:
+        stack <T> data;
+        stack <T> min;
+    public:
+
+        void push(T x){
+            if(data.empty()){
+                data.push(x);
+                min.push(x);
+            }else{
+                if(x < min.top()){
+                    min.push(x);
+                    data.push(x);
+                }else{
+                    data.push(x);
+                }
+            }
+        }
+
+        bool empty(){
+            if(data.empty()) return true;
+            else return false;
+            
+        }
+
+        T top(){
+            return data.top();
+            
+        }
+
+        void pop(){
+            if(data.top() == min.top()){
+                min.pop();
+                data.pop();
+            }
+            else data.pop();
+        }
+
+        T getmin(){
+            return min.top();
+        }
+
+};
+
+
+int main()
+{
+    int n;
+    StackMin <int> s;
+
+    cin >> n;
+
+    for(int i = 0; i < n; i++){
+        int op, x;
+        cin >> op;
+        
+        if(op==1){
+            cin >> x;
+            s.push(x);
+        }else if(op==2){
+            s.pop();
+        }else{
+            cout << s.getmin() << endl;
+        }
+
+    }
+}
