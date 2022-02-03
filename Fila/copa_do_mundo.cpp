@@ -14,10 +14,10 @@ int main (){
     for (int i = 0; i < 15; i++){
         cin >> value1 >> value2;
         if (value1 > value2){
-	        resultado.push (resultado.front ());
-	        resultado.pop ();
-	        resultado.pop ();
-	    }else{
+	    resultado.push (resultado.front ());
+	    resultado.pop ();
+	    resultado.pop ();
+	}else{
     	    resultado.pop ();
     	    resultado.push (resultado.front ());
     	    resultado.pop ();
